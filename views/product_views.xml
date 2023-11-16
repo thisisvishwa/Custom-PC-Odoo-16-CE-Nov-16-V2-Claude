@@ -1,0 +1,56 @@
+```xml
+<odoo>
+    <data>
+        <!-- Product Components Form View -->
+        <record id="view_product_components_form" model="ir.ui.view">
+            <field name="name">product.components.form</field>
+            <field name="model">product.components</field>
+            <field name="arch" type="xml">
+                <form string="Product Components">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="component_type"/>
+                            <field name="price"/>
+                            <field name="stock"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Product Components Tree View -->
+        <record id="view_product_components_tree" model="ir.ui.view">
+            <field name="name">product.components.tree</field>
+            <field name="model">product.components</field>
+            <field name="arch" type="xml">
+                <tree string="Product Components">
+                    <field name="name"/>
+                    <field name="component_type"/>
+                    <field name="price"/>
+                    <field name="stock"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Product Components Action -->
+        <record id="action_product_components" model="ir.actions.act_window">
+            <field name="name">Product Components</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">product.components</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create the first product component
+                </p>
+                <p>
+                    Add all the components that can be used to build a custom PC.
+                </p>
+            </field>
+        </record>
+
+        <!-- Product Components Menu -->
+        <menuitem id="menu_product_components" name="Product Components" parent="base.menu_sales" sequence="1" action="action_product_components"/>
+    </data>
+</odoo>
+```
