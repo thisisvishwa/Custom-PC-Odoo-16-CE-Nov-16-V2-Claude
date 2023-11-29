@@ -1,0 +1,47 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            id="bill_of_materials_report"
+            model="build_configurations"
+            string="Bill of Materials"
+            report_type="qweb-pdf"
+            name="custom_pc_builder.bill_of_materials_report"
+            file="custom_pc_builder.bill_of_materials_report"
+            print_report_name="'Bill of Materials - %s' % (object.name)"
+        />
+
+        <template id="bill_of_materials_report_template">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <div class="page">
+                        <h2>Bill of Materials for <span t-field="doc.name"/></h2>
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Component</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="doc.component_ids" t-as="component">
+                                    <tr>
+                                        <td><span t-field="component.name"/></td>
+                                        <td><span t-field="component.quantity"/></td>
+                                        <td><span t-field="component.price"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <div class="text-right">
+                            <strong>Total: </strong><span t-field="doc.total_price"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
+```

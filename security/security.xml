@@ -1,0 +1,56 @@
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Access rights for Custom PC Building Module -->
+        <record id="access_product_components" model="ir.model.access">
+            <field name="name">product.components.access</field>
+            <field name="model_id" ref="model_product_components"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="access_build_configurations" model="ir.model.access">
+            <field name="name">build.configurations.access</field>
+            <field name="model_id" ref="model_build_configurations"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <record id="access_compatibility_rules" model="ir.model.access">
+            <field name="name">compatibility.rules.access</field>
+            <field name="model_id" ref="model_compatibility_rules"/>
+            <field name="group_id" ref="base.group_user"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+        </record>
+
+        <!-- Record rules for Custom PC Building Module -->
+        <record id="rule_product_components" model="ir.rule">
+            <field name="name">product.components.rule</field>
+            <field name="model_id" ref="model_product_components"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        </record>
+
+        <record id="rule_build_configurations" model="ir.rule">
+            <field name="name">build.configurations.rule</field>
+            <field name="model_id" ref="model_build_configurations"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        </record>
+
+        <record id="rule_compatibility_rules" model="ir.rule">
+            <field name="name">compatibility.rules.rule</field>
+            <field name="model_id" ref="model_compatibility_rules"/>
+            <field name="domain_force">[('create_uid', '=', user.id)]</field>
+        </record>
+    </data>
+</odoo>
+```
